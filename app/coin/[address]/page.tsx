@@ -30,7 +30,7 @@ export default function CoinPage() {
 
   if (loading) {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f7f6fb' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#ddcfb9' }}>
       <Navbar />
       <main className="mx-auto max-w-6xl px-4 py-12">
           <div className="text-center text-gray-900">Loading...</div>
@@ -41,7 +41,7 @@ export default function CoinPage() {
 
   if (!coin) {
     return (
-      <div className="min-h-screen" style={{ backgroundColor: '#f7f6fb' }}>
+      <div className="min-h-screen" style={{ backgroundColor: '#ddcfb9' }}>
         <Navbar />
         <main className="mx-auto max-w-6xl px-4 py-12">
           <div className="text-center text-gray-900">Coin not found</div>
@@ -51,17 +51,18 @@ export default function CoinPage() {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f7f6fb' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#ddcfb9' }}>
       <Navbar />
       <main className="mx-auto max-w-6xl px-4 py-12">
         {/* Coin Header */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-6 border border-gray-200 relative">
+        <div className="rounded-xl shadow-lg p-6 mb-6 border border-gray-200 relative" style={{ backgroundColor: 'rgba(255, 255, 255, 0.4)' }}>
           {/* Social Links - Top Right */}
           <div className="absolute top-6 right-6 flex gap-2">
             {coin.xLink && (
               <button
                 onClick={() => window.open(coin.xLink, '_blank')}
-                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
+                className="p-2 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}
                 title="X (Twitter)"
               >
                 <svg
@@ -76,7 +77,8 @@ export default function CoinPage() {
             {coin.telegramLink && (
               <button
                 onClick={() => window.open(coin.telegramLink, '_blank')}
-                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
+                className="p-2 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}
                 title="Telegram"
               >
                 <TelegramLogo size={16} weight="regular" />
@@ -85,7 +87,8 @@ export default function CoinPage() {
             {coin.websiteLink && (
               <button
                 onClick={() => window.open(coin.websiteLink, '_blank')}
-                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
+                className="p-2 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}
                 title="Website"
               >
                 <Globe size={16} weight="regular" />
@@ -93,7 +96,8 @@ export default function CoinPage() {
             )}
             <button
               onClick={() => coin.contractAddress && navigator.clipboard.writeText(coin.contractAddress)}
-              className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
+              className="p-2 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer"
+              style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}
               title="Copy contract address"
             >
               <CopySimple size={16} weight="regular" className="text-gray-600" />
@@ -117,21 +121,21 @@ export default function CoinPage() {
 
           {/* Stats Grid in Header */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white p-4 rounded-lg border border-gray-200">
-              <div className="text-gray-500 text-xs font-medium mb-1">Market Cap</div>
+            <div className="p-4 rounded-lg border border-gray-200" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+              <div className="text-gray-600 text-xs font-medium mb-1">Market Cap</div>
               <div className="text-gray-900 text-lg font-bold">${(coin.marketCap || 0).toLocaleString()}</div>
             </div>
-            <div className="bg-white p-4 rounded-lg border border-gray-200">
-              <div className="text-gray-500 text-xs font-medium mb-1">24h Volume</div>
+            <div className="p-4 rounded-lg border border-gray-200" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+              <div className="text-gray-600 text-xs font-medium mb-1">24h Volume</div>
               <div className="text-gray-900 text-lg font-bold">${(coin.volume24h || 0).toLocaleString()}</div>
             </div>
-            <div className="bg-white p-4 rounded-lg border border-gray-200">
-              <div className="text-gray-500 text-xs font-medium mb-1">Holders</div>
+            <div className="p-4 rounded-lg border border-gray-200" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+              <div className="text-gray-600 text-xs font-medium mb-1">Holders</div>
               <div className="text-gray-900 text-lg font-bold">{(coin.holders || 0).toLocaleString()}</div>
             </div>
-            <div className="bg-white p-4 rounded-lg border border-gray-200">
-              <div className="text-gray-500 text-xs font-medium mb-1">24h Change</div>
-              <div className={`text-lg font-bold ${(coin.priceChange24h || 0) >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+            <div className="p-4 rounded-lg border border-gray-200" style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+              <div className="text-gray-600 text-xs font-medium mb-1">24h Change</div>
+              <div className={`text-lg font-bold ${(coin.priceChange24h || 0) >= 0 ? 'text-green-600' : 'text-pink-600'}`}>
                 {(coin.priceChange24h || 0) >= 0 ? '+' : ''}{(coin.priceChange24h || 0).toFixed(2)}%
               </div>
             </div>
@@ -142,7 +146,7 @@ export default function CoinPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Column - Chart */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-lg shadow-sm p-4 border border-gray-200">
+            <div className="rounded-xl shadow-lg p-4 border border-gray-200" style={{ backgroundColor: 'rgba(255, 255, 255, 0.4)' }}>
               <div className="w-full overflow-hidden rounded-lg" style={{ height: '600px' }}>
                 <iframe
                   src={`https://birdeye.so/tv-widget/${address}?chain=solana&theme=light`}
@@ -158,7 +162,7 @@ export default function CoinPage() {
           {/* Right Column - Trading & Info */}
           <div className="lg:col-span-1 space-y-6">
             {/* Description */}
-            <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div className="rounded-xl shadow-lg p-6 border border-gray-200" style={{ backgroundColor: 'rgba(255, 255, 255, 0.4)' }}>
               <h3 className="text-sm font-semibold text-gray-900 mb-3">Description</h3>
               <p className="text-sm text-gray-600 leading-relaxed break-words">
                 {coin.description}
@@ -166,7 +170,7 @@ export default function CoinPage() {
             </div>
 
             {/* Fees earned */}
-            <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+            <div className="rounded-xl shadow-lg p-6 border border-gray-200" style={{ backgroundColor: 'rgba(255, 255, 255, 0.4)' }}>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-semibold text-gray-900">Fees earned</h3>
               </div>

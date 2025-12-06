@@ -105,7 +105,7 @@ export default function Profile() {
 
   if (!authenticated) {
     return (
-      <div className="min-h-screen" style={{ backgroundColor: '#f7f6fb' }}>
+      <div className="min-h-screen" style={{ backgroundColor: '#ddcfb9' }}>
         <Navbar />
         <main className="mx-auto max-w-4xl px-4 py-12">
           {/* Unified Profile Card */}
@@ -138,7 +138,7 @@ export default function Profile() {
               {renderSkeleton()}
               
               {/* Connect Wallet Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-[#f7f6fb]/80 backdrop-blur-sm">
+              <div className="absolute inset-0 flex items-center justify-center backdrop-blur-sm" style={{ backgroundColor: 'rgba(221, 207, 185, 0.8)' }}>
                 <div className="text-center">
                   <h1 className="text-2xl font-bold text-gray-900 mb-4">Please connect your wallet</h1>
                   <p className="text-gray-600">You need to connect your wallet to view your profile.</p>
@@ -152,7 +152,7 @@ export default function Profile() {
   }
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f7f6fb' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#ddcfb9' }}>
       <Navbar />
       <main className="mx-auto max-w-4xl px-4 py-12">
         {/* Unified Profile Card */}
@@ -173,25 +173,19 @@ export default function Profile() {
           </div>
 
           {/* Tabs */}
-          <div className="border-b border-gray-300">
+          <div>
             <div className="flex">
               <button
                 onClick={() => setActiveTab('launches')}
-                className={`flex-1 px-4 py-3 text-sm font-bold transition-colors cursor-pointer ${
-                  activeTab === 'launches'
-                    ? 'text-gray-900 border-b-2 border-gray-900'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
+                className="flex-1 px-4 py-3 text-sm font-bold cursor-pointer"
+                style={activeTab === 'launches' ? { backgroundColor: 'rgba(255, 255, 255, 0.3)', color: '#4a4a4a' } : { color: '#4a4a4a' }}
               >
                 Launches
               </button>
               <button
                 onClick={() => setActiveTab('fees')}
-                className={`flex-1 px-4 py-3 text-sm font-bold transition-colors cursor-pointer ${
-                  activeTab === 'fees'
-                    ? 'text-gray-900 border-b-2 border-gray-900'
-                    : 'text-gray-500 hover:text-gray-700'
-                }`}
+                className="flex-1 px-4 py-3 text-sm font-bold cursor-pointer"
+                style={activeTab === 'fees' ? { backgroundColor: 'rgba(255, 255, 255, 0.3)', color: '#4a4a4a' } : { color: '#4a4a4a' }}
               >
                 Fees
               </button>
@@ -206,13 +200,7 @@ export default function Profile() {
                   renderSkeleton()
                 ) : coins.length === 0 ? (
                   <div className="text-center py-20">
-                    <p className="text-gray-500 mb-4">No launches yet</p>
-                    <Link 
-                      href="/create"
-                      className="inline-block px-6 py-3 bg-gray-900 text-white font-bold rounded-lg hover:bg-gray-800 transition-colors text-sm"
-                    >
-                      Launch Your First Coin
-                    </Link>
+                    <p className="text-gray-500">No launches yet</p>
                   </div>
                 ) : (
                   <>

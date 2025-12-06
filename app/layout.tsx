@@ -2,12 +2,10 @@
 
 import "./globals.css";
 import { PrivyProvider } from '@privy-io/react-auth';
-import Footer from '@/components/Footer';
 import { toSolanaWalletConnectors } from '@privy-io/react-auth/solana';
 import { WalletProvider, ConnectionProvider } from '@solana/wallet-adapter-react';
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo } from 'react';
 import { Geist, Geist_Mono } from "next/font/google";
-import LoadingSpinner from '@/components/LoadingSpinner';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,25 +17,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-function LoadingWrapper({ children }: { children: React.ReactNode }) {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Only show loader on initial page load/refresh
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 800);
-
-    return () => clearTimeout(timer);
-  }, []); // Empty dependency array - only runs once on mount
-
-  if (loading) {
-    return <LoadingSpinner />;
-  }
-
-  return <>{children}</>;
-}
-
 function WalletAdapter({ children }: { children: React.ReactNode }) {
   const wallets = useMemo(() => [], []);
   const endpoint = useMemo(() => process.env.NEXT_PUBLIC_SOLANA_RPC || '', []);
@@ -45,9 +24,7 @@ function WalletAdapter({ children }: { children: React.ReactNode }) {
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
-        <LoadingWrapper>
-          {children}
-        </LoadingWrapper>
+        {children}
       </WalletProvider>
     </ConnectionProvider>
   );
@@ -61,12 +38,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Vibeify</title>
+        <title>Sporky</title>
         <meta name="description" content="Launch and trade memecoins on Solana" />
-        <link rel="icon" href="/Vibeify-Logo-jpeg-file (1).jpg" />
-        <meta property="og:title" content="Vibeify" />
+        <link rel="icon" href="/Arena (27).png" />
+        <meta property="og:title" content="Sporky" />
         <meta property="og:description" content="Launch and trade memecoins on Solana" />
-        <meta property="og:image" content="/Vibeify-Logo-jpeg-file (1).jpg" />
+        <meta property="og:image" content="/Arena (27).png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -89,7 +66,6 @@ export default function RootLayout({
         >
           <WalletAdapter>
             {children}
-            <Footer />
           </WalletAdapter>
         </PrivyProvider>
       </body>

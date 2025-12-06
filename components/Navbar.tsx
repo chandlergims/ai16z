@@ -48,51 +48,16 @@ export default function Navbar() {
   }, [walletAddress]);
   
   return (
-    <nav className="w-full sticky top-0 z-50" style={{ backgroundColor: '#f7f6fb' }}>
+    <nav className="w-full sticky top-0 z-50" style={{ backgroundColor: '#ddcfb9' }}>
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between relative">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <img 
-                src="/Vibeify-Logo-png-file (1).png" 
-                alt="Vibeify" 
-                className="h-16 sm:h-18 md:h-20 w-auto select-none"
+                src="/Arena (27).png" 
+                alt="Arena" 
+                className="h-12 w-auto select-none"
               />
-            </Link>
-          </div>
-          <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-6">
-            <Link
-              href="/create"
-              className={`font-bold transition-all duration-200 flex items-center gap-2 px-3 py-2 rounded-lg ${
-                pathname === '/create'
-                  ? 'bg-gray-200 text-gray-900'
-                  : 'text-gray-600 hover:bg-gray-200/50'
-              }`}
-            >
-              <Plus size={20} weight={pathname === '/create' ? 'fill' : 'regular'} className="text-gray-600" />
-              <span className="text-sm">Create</span>
-            </Link>
-            <Link
-              href="/vibes"
-              className={`font-bold transition-all duration-200 flex items-center gap-2 px-3 py-2 rounded-lg ${
-                pathname === '/vibes'
-                  ? 'bg-gray-200 text-gray-900'
-                  : 'text-gray-600 hover:bg-gray-200/50'
-              }`}
-            >
-              <Smiley size={20} weight={pathname === '/vibes' ? 'fill' : 'regular'} className="text-gray-600" />
-              <span className="text-sm">Vibes</span>
-            </Link>
-            <Link
-              href="/feed"
-              className={`font-bold transition-all duration-200 flex items-center gap-2 px-3 py-2 rounded-lg ${
-                pathname === '/feed'
-                  ? 'bg-gray-200 text-gray-900'
-                  : 'text-gray-600 hover:bg-gray-200/50'
-              }`}
-            >
-              <SquaresFour size={20} weight={pathname === '/feed' ? 'fill' : 'regular'} className="text-gray-600" />
-              <span className="text-sm">Feed</span>
             </Link>
           </div>
           <div className="flex items-center space-x-4 justify-end">
@@ -102,7 +67,8 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="flex items-center gap-2 px-3 py-1.5 bg-gray-200 text-gray-900 rounded-lg hover:bg-gray-300 transition-colors font-bold text-sm cursor-pointer"
+                  className="flex items-center gap-2 px-3 py-1.5 text-white rounded-lg font-bold text-sm cursor-pointer"
+                  style={{ backgroundColor: '#8b6f47' }}
                 >
                   <span>{walletAddress && shortenAddress(walletAddress)}</span>
                   {dropdownOpen ? (
@@ -113,25 +79,31 @@ export default function Navbar() {
                 </button>
                 
                 {dropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden z-50">
-                    <div className="px-4 py-3 border-b border-gray-200 flex items-center gap-2">
+                  <div className="absolute right-0 mt-2 w-48 rounded-lg shadow-lg overflow-hidden z-50" style={{ backgroundColor: 'rgba(255, 255, 255, 0.95)' }}>
+                    <div className="px-4 py-3 flex items-center gap-2" style={{ backgroundColor: 'rgba(139, 111, 71, 0.1)', borderBottom: '1px solid rgba(139, 111, 71, 0.2)' }}>
                       <img src="/solana-sol-logo-png_seeklogo-423095.png" alt="SOL" className="w-4 h-4" />
-                      <p className="text-sm text-gray-900 font-bold">{`${(balance || 0).toFixed(2)} SOL`}</p>
+                      <p className="text-sm font-bold" style={{ color: '#4a4a4a' }}>{`${(balance || 0).toFixed(2)} SOL`}</p>
                     </div>
                     <Link
                       href="/profile"
                       onClick={() => setDropdownOpen(false)}
-                      className="px-4 py-3 border-b border-gray-200 flex items-center gap-2 hover:bg-gray-100 transition-colors cursor-pointer"
+                      className="px-4 py-3 flex items-center gap-2 cursor-pointer"
+                      style={{ borderBottom: '1px solid rgba(139, 111, 71, 0.2)' }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(139, 111, 71, 0.1)'}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                     >
-                      <UserCircle size={16} weight="regular" />
-                      <p className="text-sm text-gray-900 font-bold">Profile</p>
+                      <UserCircle size={16} weight="regular" style={{ color: '#4a4a4a' }} />
+                      <p className="text-sm font-bold" style={{ color: '#4a4a4a' }}>Profile</p>
                     </Link>
                     <button
                       onClick={() => {
                         setDropdownOpen(false);
                         logout();
                       }}
-                      className="w-full flex items-center gap-2 px-4 py-3 text-left text-sm text-gray-900 font-bold hover:bg-gray-100 transition-colors cursor-pointer"
+                      className="w-full flex items-center gap-2 px-4 py-3 text-left text-sm font-bold cursor-pointer"
+                      style={{ color: '#4a4a4a' }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(139, 111, 71, 0.1)'}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                     >
                       <SignOut size={16} weight="regular" />
                       Logout
@@ -142,7 +114,8 @@ export default function Navbar() {
             ) : (
               <button
                 onClick={login}
-                className="px-3 py-1.5 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-bold text-sm border-b-2 border-black cursor-pointer"
+                className="px-3 py-1.5 text-white rounded-lg font-bold text-sm cursor-pointer"
+                style={{ backgroundColor: '#8b6f47' }}
               >
                 Connect Wallet
               </button>

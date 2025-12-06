@@ -35,8 +35,8 @@ export const createCurveConfig = () => {
     baseFeeParams: {
       baseFeeMode: 0, // FeeSchedulerLinear
       feeSchedulerParam: {
-        startingFeeBps: 200,
-        endingFeeBps: 200,
+        startingFeeBps: 100,
+        endingFeeBps: 100,
         numberOfPeriod: 0,
         totalDuration: 0,
       },

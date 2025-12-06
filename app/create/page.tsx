@@ -200,17 +200,10 @@ export default function CreateCoin() {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f7f6fb' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#ddcfb9' }}>
       <Navbar />
-      <main className="mx-auto max-w-md px-4 py-12">
-        <div className="mb-8 text-center">
-          <p className="text-gray-600 text-sm max-w-sm mx-auto mb-6">
-            Mint your vibe-coded creations, turn them into liquid ecosystems
-          </p>
-        </div>
-
-        <div className="min-h-[750px]">
-        <form onSubmit={handleFormSubmit} className="space-y-5">
+      <main className="mx-auto max-w-md px-4 py-8">
+        <form onSubmit={handleFormSubmit} className="space-y-4">
           {/* Image Upload */}
           <div className="flex justify-center">
             <label className="cursor-pointer group">
@@ -270,7 +263,7 @@ export default function CreateCoin() {
               name="description"
               value={formData.description}
               onChange={handleChange}
-              placeholder="Explain your vibe-coded creation"
+              placeholder="Describe your token"
               required
               rows={3}
             />
@@ -279,13 +272,15 @@ export default function CreateCoin() {
           <button
             type="button"
             onClick={() => setShowOptionalFields(!showOptionalFields)}
-            className="w-full text-sm text-gray-900 hover:text-gray-700 font-semibold cursor-pointer flex items-center justify-center gap-2"
+            className="w-full text-sm font-semibold cursor-pointer flex items-center justify-center gap-2"
+            style={{ color: '#8b6f47' }}
           >
             {showOptionalFields ? 'Hide optional fields' : 'Show optional fields'}
             <CaretDown 
               size={16} 
               weight="bold"
               className={`transition-transform ${showOptionalFields ? 'rotate-180' : ''}`}
+              style={{ color: '#8b6f47' }}
             />
           </button>
 
@@ -329,23 +324,13 @@ export default function CreateCoin() {
           <div className="flex justify-end mt-6">
             <button
               type="submit"
-              className="px-6 py-2 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors text-sm cursor-pointer border-b-2 border-black"
+              className="px-6 py-2 text-white font-semibold rounded-lg transition-colors text-sm cursor-pointer"
+              style={{ backgroundColor: '#8b6f47' }}
             >
               Create
             </button>
           </div>
-
-          <div className="mt-6 text-center text-xs text-gray-500">
-            <div>Unsure about launching alone?</div>
-            <div className="mt-1">
-              Get instant verification, tailored support, and a curated path to launch.{' '}
-              <a href="https://form.typeform.com/to/CXMChHlP" target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:text-gray-700 font-medium cursor-pointer">
-                Apply here
-              </a>
-            </div>
-          </div>
         </form>
-        </div>
 
         <Modal 
           isOpen={showModal} 
