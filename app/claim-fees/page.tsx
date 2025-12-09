@@ -6,7 +6,6 @@ import { useWallets } from '@privy-io/react-auth/solana';
 import { PublicKey, Transaction, Connection, VersionedTransaction } from '@solana/web3.js';
 import bs58 from 'bs58';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 
 interface Pool {
   publicKey: string;
@@ -546,8 +545,6 @@ export default function ClaimFeesPage() {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

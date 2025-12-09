@@ -24,6 +24,9 @@ export interface CoinData {
   // Status
   status: 'pending' | 'active' | 'failed';
   
+  // Category
+  category?: 'agent' | 'meme';
+  
   // Verification
   verified: boolean;
   telegramHandle?: string;

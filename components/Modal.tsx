@@ -22,13 +22,14 @@ export default function Modal({ isOpen, onClose, onSubmit, children, ticker, isC
       
       {/* Modal */}
       <div 
-        className="relative z-10 w-full max-w-xs mx-4 p-5 rounded-2xl bg-white shadow-xl"
+        className="relative z-10 w-full max-w-xs mx-4 p-5 rounded-2xl shadow-xl"
+        style={{ backgroundColor: '#1a1a1a' }}
       >
         {/* Close button - disabled during creation */}
         {!isCreating && (
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 text-gray-500 hover:text-gray-900 transition-colors cursor-pointer"
+            className="absolute top-3 right-3 text-gray-500 hover:text-gray-300 transition-colors cursor-pointer"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -36,10 +37,10 @@ export default function Modal({ isOpen, onClose, onSubmit, children, ticker, isC
           </button>
         )}
 
-        <h2 className="text-base font-bold text-gray-900 mb-1">
+        <h2 className="text-base font-bold text-white mb-1">
           Do you want to prebuy {ticker || 'coin'}?
         </h2>
-        <p className="text-xs text-gray-600 mb-4">Leave blank if you don't want to buy supply</p>
+        <p className="text-xs text-gray-400 mb-4">Leave blank if you don't want to buy supply</p>
         
         <div className="mb-4">
           {children}
@@ -49,7 +50,8 @@ export default function Modal({ isOpen, onClose, onSubmit, children, ticker, isC
           type="button"
           onClick={onSubmit}
           disabled={isCreating}
-          className="w-full px-4 py-2 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors text-sm cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-4 py-2 text-white font-semibold rounded-lg transition-colors text-sm cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+          style={{ backgroundColor: '#3b82f6' }}
         >
           {isCreating ? 'Creating...' : 'Create Coin'}
         </button>

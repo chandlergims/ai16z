@@ -5,17 +5,8 @@ import { PrivyProvider } from '@privy-io/react-auth';
 import { toSolanaWalletConnectors } from '@privy-io/react-auth/solana';
 import { WalletProvider, ConnectionProvider } from '@solana/wallet-adapter-react';
 import { useMemo } from 'react';
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Navbar from '@/components/Navbar';
+import Sidebar from '@/components/Sidebar';
 
 function WalletAdapter({ children }: { children: React.ReactNode }) {
   const wallets = useMemo(() => [], []);
@@ -45,9 +36,7 @@ export default function RootLayout({
         <meta property="og:description" content="Launch and trade memecoins on Solana" />
         <meta property="og:image" content="/Arena (27).png" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         <PrivyProvider
           appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID || ''}
           config={{
@@ -65,6 +54,8 @@ export default function RootLayout({
           }}
         >
           <WalletAdapter>
+            <Navbar />
+            <Sidebar />
             {children}
           </WalletAdapter>
         </PrivyProvider>
