@@ -53,7 +53,7 @@ export async function uploadMetadata(data: {
     const links: any = {};
     if (data.xLink) links.twitter = data.xLink;
     if (data.mintAddress) {
-      links.website = `https://sporky.fun/coin/${data.mintAddress}`;
+      links.website = `https://pi16z.fun/coin/${data.mintAddress}`;
     }
     if (data.telegramLink) links.telegram = data.telegramLink;
     

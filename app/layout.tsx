@@ -29,12 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Sporky</title>
-        <meta name="description" content="Launch and trade memecoins on Solana" />
-        <link rel="icon" href="/Arena (27).png" />
-        <meta property="og:title" content="Sporky" />
-        <meta property="og:description" content="Launch and trade memecoins on Solana" />
-        <meta property="og:image" content="/Arena (27).png" />
+        <title>pi16z</title>
+        <meta name="description" content="The Agent Layer for the Prediction Economy" />
+        <link rel="icon" href="/9nZTxBnR_400x400.jpg" />
+        <meta property="og:title" content="pi16z" />
+        <meta property="og:description" content="The Agent Layer for the Prediction Economy" />
+        <meta property="og:image" content="/9nZTxBnR_400x400.jpg" />
       </head>
       <body className="antialiased">
         <PrivyProvider

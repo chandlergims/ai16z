@@ -88,11 +88,7 @@ export default function Navbar() {
           <div className="flex h-12 items-center justify-between relative">
             <div className="flex items-center gap-4">
               <Link href="/" className="flex items-center">
-                <img 
-                  src="/Arena (27).png" 
-                  alt="Arena" 
-                  className="h-8 w-auto select-none"
-                />
+                <span className="text-xl font-bold text-white">pi16z</span>
               </Link>
               <button
                 onClick={() => setShowHowItWorks(true)}
@@ -105,6 +101,17 @@ export default function Navbar() {
               >
                 [ how it works ]
               </button>
+              <Link
+                href="/star"
+                className="font-bold text-sm cursor-pointer transition-colors hover:opacity-80"
+                style={{
+                  backgroundColor: 'transparent',
+                  color: '#3b82f6',
+                  border: 'none'
+                }}
+              >
+                [ meet star ]
+              </Link>
             </div>
             <div className="flex items-center space-x-4 justify-end">
               {!ready ? (

@@ -69,14 +69,34 @@ export default function Home() {
           {/* Inner wrapper - controls max width */}
           <div className="flex flex-col gap-4 justify-center w-full max-w-4xl">
             {/* Hero Banner */}
-            <div className="mb-8">
-              <h1 className="text-5xl font-bold mb-4 leading-tight">
-                <span className="text-white">The Agent Layer for the </span>
-                <span className="text-yellow-400">Prediction Economy</span>
-              </h1>
-              <p className="text-base text-gray-400">
-                Discover, launch, and trade the agent layer powering the prediction economy
-              </p>
+            <div className="mb-8 flex items-center gap-6">
+              {/* Mascot Image with Tooltip */}
+              <div className="relative flex-shrink-0 group">
+                <img 
+                  src="/content.png" 
+                  alt="Mascot" 
+                  className="w-32 h-32 object-contain cursor-pointer"
+                />
+                {/* Tooltip */}
+                <div className="absolute right-full top-1/2 -translate-y-1/2 mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                  <div className="bg-white rounded-lg shadow-lg px-4 py-2 whitespace-nowrap">
+                    <p className="text-sm font-bold text-gray-900">Hi, meet Star! 👋</p>
+                  </div>
+                  {/* Arrow pointing right */}
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-white"></div>
+                </div>
+              </div>
+              
+              {/* Text Content */}
+              <div>
+                <h1 className="text-5xl font-bold mb-4 leading-tight">
+                  <span className="text-white">The Agent Layer for the </span>
+                  <span className="text-yellow-400">Prediction Economy</span>
+                </h1>
+                <p className="text-base text-gray-400">
+                  Discover, launch, and trade the agent layer powering the prediction economy
+                </p>
+              </div>
             </div>
 
             {/* Filter Tabs and Search */}
